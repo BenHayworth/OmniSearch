@@ -1,0 +1,24 @@
+{
+  "name": "omnisearch",
+  "version": "1.0.0",
+  "description": "A simple desktop search interface built with Electron.",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenHayworth/OmniSearch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenHayworth/OmniSearch/issues"
+  },
+  "homepage": "https://github.com/BenHayworth/OmniSearch#readme",
+  "devDependencies": {
+    "electron": "^44.1.0"
+  }
+}
