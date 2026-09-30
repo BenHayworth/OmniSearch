@@ -1,9 +1,7 @@
-const form = document.querySelector('#search-form');
+﻿const form = document.querySelector('#search-form');
 const input = document.querySelector('#search-input');
-const results = document.querySelector('#results');
 const filters = document.querySelectorAll('.filter');
 const platform = document.querySelector('#platform');
-
 let activeFilter = 'All';
 
 filters.forEach((button) => {
@@ -17,17 +15,8 @@ filters.forEach((button) => {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  const query = input.value.trim();
-
-  results.innerHTML = query
-    ? `<div class="empty-icon">⌕</div><h2>No ${activeFilter.toLowerCase()} results yet</h2><p>“${escapeHtml(query)}” is ready to connect to a search source.</p>`
-    : '<div class="empty-icon">⌕</div><h2>Start searching</h2><p>Your results will appear here.</p>';
+  const params = new URLSearchParams({ q: input.value.trim(), category: activeFilter });
+  window.location.href = `files.html?${params}`;
 });
 
-platform.textContent = window.omniSearch?.platform ? `· ${window.omniSearch.platform}` : '';
-
-function escapeHtml(value) {
-  const element = document.createElement('div');
-  element.textContent = value;
-  return element.innerHTML;
-}
+platform.textContent = window.omniSearch?.platform ? `\u00b7 ${window.omniSearch.platform}` : '';

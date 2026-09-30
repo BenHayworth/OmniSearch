@@ -46,6 +46,12 @@ kbd { padding: 5px 8px; color: #7c8393; border: 1px solid #dfe2e9; border-bottom
 .empty-icon { margin: auto; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; background: #e9eafa; color: #5b5ce2; font-size: 24px; }
 
 footer { margin-top: auto; padding: 22px; color: #a0a5b0; text-align: center; font-size: 12px; }
+.result-summary { margin: 26px 0 16px; color: #707789; text-align: left; overflow-wrap: anywhere; }
+.file-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; text-align: left; }
+.file-entry { padding: 20px 24px; border: 1px solid #e5e8ee; border-radius: 14px; background: white; }
+.file-entry h2 { margin: 8px 0; font-size: 17px; overflow-wrap: anywhere; }
+.file-entry p { margin: 0; color: #707789; font-size: 14px; line-height: 1.5; }
+.file-category { color: #4e4fcb; font-size: 12px; font-weight: 650; }
 
 @media (max-width: 600px) {
   .topbar { padding: 0 20px; }

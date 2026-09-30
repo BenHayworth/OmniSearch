@@ -23,20 +23,28 @@
       <section class="hero" aria-labelledby="files-title">
         <p class="eyebrow">YOUR LIBRARY</p>
         <h1 id="files-title">Saved files</h1>
-        <p class="subtitle">A place for the files you want to keep.</p>
-        <section class="results" aria-labelledby="empty-title">
+        <p class="subtitle">Explore sample files, notes, and links.</p>
+        <form class="search" action="files.html" method="get">
+          <input id="files-query" name="q" type="search" aria-label="Search saved entries" placeholder="Search sample entries" />
+          <input id="files-category" name="category" type="hidden" value="All" />
+          <button class="filter active" type="submit">Search</button>
+        </form>
+        <p id="result-summary" class="result-summary" role="status"></p>
+        <ul id="file-list" class="file-list" aria-label="Matching saved entries"></ul>
+        <section id="no-matches" class="results" aria-labelledby="empty-title" hidden>
           <div class="empty-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z" />
               <path d="M14 3v5h5M9 13h6M9 17h6" />
             </svg>
           </div>
-          <h2 id="empty-title">No saved files yet</h2>
-          <p>This page is a preview. No files are connected yet.</p>
+          <h2 id="empty-title">No matching entries</h2>
+          <p>Try a different search or <a href="files.html">view all sample entries</a>.</p>
         </section>
       </section>
 
-      <footer>OmniSearch</footer>
+      <footer>OmniSearch · Sample entries only</footer>
     </main>
+    <script src="files.js"></script>
   </body>
 </html>
