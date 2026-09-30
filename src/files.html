@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'" />
+    <title>Files | OmniSearch</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html" aria-label="OmniSearch home">
+          <span class="brand-mark">O</span>
+          <span>OmniSearch</span>
+        </a>
+        <nav class="topbar-actions" aria-label="Main navigation">
+          <a class="nav-button" href="index.html">Search</a>
+          <a class="nav-button active" href="files.html" aria-current="page">Files</a>
+        </nav>
+      </header>
+
+      <section class="hero" aria-labelledby="files-title">
+        <p class="eyebrow">YOUR LIBRARY</p>
+        <h1 id="files-title">Saved files</h1>
+        <p class="subtitle">A place for the files you want to keep.</p>
+        <section class="results" aria-labelledby="empty-title">
+          <div class="empty-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z" />
+              <path d="M14 3v5h5M9 13h6M9 17h6" />
+            </svg>
+          </div>
+          <h2 id="empty-title">No saved files yet</h2>
+          <p>This page is a preview. No files are connected yet.</p>
+        </section>
+      </section>
+
+      <footer>OmniSearch</footer>
+    </main>
+  </body>
+</html>
