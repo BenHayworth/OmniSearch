@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, request
-import os
 from pathlib import Path
 
 app = Flask(__name__)
+
+MAX_FILES = 1000
 
 
 @app.post("/search")
@@ -13,19 +14,24 @@ def search():
 
     path = Path(body["folder"])
 
-    folders = [
-        name for name in os.listdir(path) if os.path.isdir(os.path.join(path, name))
-    ]
+    stack = []
+
     files = []
 
-    for item in path.iterdir():
-        if item.is_file():
-            files.append(item.name)
-            print(item.name, "FILE", flush=True)
-        elif item.is_dir():
-            print(item.name, "FOLDER", flush=True)
+    stack.append(path)
+    while stack and len(files) < MAX_FILES:
+        current_folder = stack.pop()
+        for item in current_folder.iterdir():
+            if item.is_file():
+                files.append(str(item))
+                print(item, "FILE", flush=True)
+                if len(files) >= MAX_FILES:
+                    break
+            elif item.is_dir() and not item.is_symlink():
+                stack.append(item)
+                print(item.name, "FOLDER", flush=True)
 
-    return jsonify({"files": str(files)})
+    return jsonify({"files": files})
 
 
 if __name__ == "__main__":
