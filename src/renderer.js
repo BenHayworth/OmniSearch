@@ -19,4 +19,5 @@ form.addEventListener('submit', (event) => {
   window.location.href = `files.html?${params}`;
 });
 
+
 platform.textContent = window.omniSearch?.platform ? `\u00b7 ${window.omniSearch.platform}` : '';

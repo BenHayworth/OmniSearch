@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'" />
+  <title>Add to Knowledge | OmniSearch</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="OmniSearch home">
+        <span class="brand-mark">O</span>
+        <span>OmniSearch</span>
+      </a>
+      <nav class="topbar-actions" aria-label="Main navigation">
+        <a class="nav-button" href="index.html">Search</a>
+        <a class="nav-button" href="files.html">Files</a>
+        <a class="nav-button active" href="add-to-knowledge.html" aria-current="page">Add to Knowledge</a>
+      </nav>
+    </header>
+    <section class="hero" aria-labelledby="knowledge-title">
+      <h1 id="knowledge-title">Add to Knowledge</h1>
+      <p class="subtitle">Select a folder.</p>
+      <button class="filter active" id="select-folder" type="button">Select folder</button>
+      <p class="result-summary" id="selected-folder" role="status">No folder selected.</p>
+    </section>
+    <footer>OmniSearch</footer>
+  </main>
+  <script src="add-to-knowledge.js"></script>
+</body>
+
+</html>

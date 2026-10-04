@@ -1,52 +1,60 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'" />
-    <title>OmniSearch</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="app-shell">
-      <header class="topbar">
-        <a class="brand" href="#" aria-label="OmniSearch home">
-          <span class="brand-mark">O</span>
-          <span>OmniSearch</span>
-        </a>
-        <nav class="topbar-actions" aria-label="Main navigation">
-          <a class="nav-button" href="files.html">Files</a>
-          <button class="icon-button" aria-label="Settings">⚙</button>
-        </nav>
-      </header>
 
-      <section class="hero">
-        <p class="eyebrow">SEARCH EVERYTHING</p>
-        <h1>Find what you need.</h1>
-        <p class="subtitle">Search files, notes, links, and more from one place.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    connect-src 'self' http://127.0.0.1:5000;
+  " />
+  <title>OmniSearch</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-        <form class="search" id="search-form">
-          <span class="search-icon" aria-hidden="true">⌕</span>
-          <input id="search-input" type="search" placeholder="Search OmniSearch…" autocomplete="off" autofocus />
-          <kbd>Enter</kbd>
-        </form>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="OmniSearch home">
+        <span class="brand-mark">O</span>
+        <span>OmniSearch</span>
+      </a>
+      <nav class="topbar-actions" aria-label="Main navigation">
+        <a class="nav-button" href="files.html">Files</a>
+        <a class="nav-button" href="add-to-knowledge.html">Add to Knowledge</a>
+        <button class="icon-button" id="icon-id" aria-label="Settings">⚙</button>
+      </nav>
+    </header>
 
-        <nav class="filters" aria-label="Search categories">
-          <button class="filter active" data-filter="All">All</button>
-          <button class="filter" data-filter="Files">Files</button>
-          <button class="filter" data-filter="Notes">Notes</button>
-          <button class="filter" data-filter="Links">Links</button>
-        </nav>
+    <section class="hero">
+      <p class="eyebrow">SEARCH EVERYTHING</p>
+      <h1>Find what you need.</h1>
+      <p class="subtitle">Search files, notes, links, and more from one place.</p>
 
-        <section class="results" id="results" aria-live="polite">
-          <div class="empty-icon">⌕</div>
-          <h2>Start searching</h2>
-          <p>Your results will appear here.</p>
-        </section>
+      <form class="search" id="search-form">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="search-input" type="search" placeholder="Search OmniSearch…" autocomplete="off" autofocus />
+        <kbd>Enter</kbd>
+      </form>
+
+      <nav class="filters" aria-label="Search categories">
+        <button class="filter active" data-filter="All">All</button>
+        <button class="filter" data-filter="Files">Files</button>
+        <button class="filter" data-filter="Notes">Notes</button>
+        <button class="filter" data-filter="Links">Links</button>
+      </nav>
+
+      <section class="results" id="results" aria-live="polite">
+        <div class="empty-icon">⌕</div>
+        <h2>Start searching</h2>
+        <p>Your results will appear here.</p>
       </section>
+    </section>
 
-      <footer>OmniSearch <span id="platform"></span></footer>
-    </main>
-    <script src="renderer.js"></script>
-  </body>
+    <footer>OmniSearch <span id="platform"></span></footer>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+
 </html>

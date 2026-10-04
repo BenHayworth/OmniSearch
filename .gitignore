@@ -1,6 +1,26 @@
 # Dependencies
 node_modules/
 
+# Python virtual environments
+.OmniSearch[Vv]env/
+.venv/
+venv/
+env/
+ENV/
+
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+
 # Electron build output
 dist/
 out/
@@ -23,6 +43,7 @@ pnpm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+Desktop.ini
 
 # Test coverage and caches
 coverage/
