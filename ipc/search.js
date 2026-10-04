@@ -9,7 +9,11 @@ async function handleSearch(event, folder) {
         })
     });
 
-    return await response.json();
+    jsonResponse = await response.json();
+
+    console.log(jsonResponse);
+
+    return jsonResponse;
 }
 
 module.exports = { handleSearch };

@@ -10,6 +10,7 @@ selectFolder.addEventListener('click', async () => {
       const result = await window.omniSearch.search(
         folder
       );
+      console.log(result)
       selectedFolder.textContent = folder;
     }
     else selectedFolder.textContent = previousSelection;

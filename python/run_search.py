@@ -16,14 +16,16 @@ def search():
     folders = [
         name for name in os.listdir(path) if os.path.isdir(os.path.join(path, name))
     ]
+    files = []
 
     for item in path.iterdir():
         if item.is_file():
+            files.append(item.name)
             print(item.name, "FILE", flush=True)
         elif item.is_dir():
             print(item.name, "FOLDER", flush=True)
 
-    return jsonify({"message": "Hello from Python"})
+    return jsonify({"files": str(files)})
 
 
 if __name__ == "__main__":
