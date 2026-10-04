@@ -42,6 +42,10 @@ pythonProcess.stdout.on('data', (data) => {
   console.log(data.toString());
 });
 
+pythonProcess.stderr.on('data', (data) => {
+  console.error(data.toString());
+});
+
 app.whenReady().then(() => {
   ipcMain.handle('select-knowledge-folder', async (event) => {
     const owner = BrowserWindow.fromWebContents(event.sender);
