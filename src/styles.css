@@ -53,6 +53,24 @@ footer { margin-top: auto; padding: 22px; color: #a0a5b0; text-align: center; fo
 .file-entry p { margin: 0; color: #707789; font-size: 14px; line-height: 1.5; }
 .file-category { color: #4e4fcb; font-size: 12px; font-weight: 650; }
 
+.knowledge-page { text-align: left; padding-top: 54px; }
+.knowledge-page h1 { font-size: clamp(34px, 5vw, 48px); }
+.knowledge-card { padding: 24px; border: 1px solid #e0e4ec; border-radius: 18px; background: white; box-shadow: 0 8px 28px rgba(31, 37, 55, .04); }
+.knowledge-card-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.knowledge-card h2 { margin: 0; font-size: 18px; letter-spacing: -.02em; }
+.folder-button { padding: 11px 18px; border: 0; border-radius: 10px; background: #5b5ce2; color: white; font-weight: 650; cursor: pointer; }
+.folder-button:hover { background: #4e4fcb; }
+.folder-button:disabled { opacity: .6; cursor: wait; }
+.folder-button:focus-visible { outline: 2px solid #5b5ce2; outline-offset: 3px; }
+.folder-path { margin: 20px 0 0; padding: 14px 16px; border-radius: 10px; background: #f4f5f9; color: #596176; font-size: 14px; overflow-wrap: anywhere; }
+.selection-status { min-height: 20px; margin: 14px 0; color: #707789; font-size: 14px; }
+.file-count { padding: 6px 12px; border-radius: 999px; background: #e7e7fb; color: #4e4fcb; font-size: 13px; font-weight: 700; }
+.file-preview-summary { margin: 12px 0 20px; color: #707789; font-size: 14px; }
+.knowledge-file-list { margin: 0; padding: 0; list-style: none; max-height: 440px; overflow-y: auto; }
+.knowledge-file-list li { display: grid; gap: 5px; padding: 14px 0; border-top: 1px solid #eef0f4; }
+.knowledge-file-name { font-size: 14px; font-weight: 650; overflow-wrap: anywhere; }
+.knowledge-file-path { font-size: 12px; color: #858b99; overflow-wrap: anywhere; }
+
 @media (max-width: 600px) {
   .topbar { padding: 0 20px; }
   .hero { padding-top: 54px; }

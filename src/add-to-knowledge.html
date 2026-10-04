@@ -22,11 +22,26 @@
         <a class="nav-button active" href="add-to-knowledge.html" aria-current="page">Add to Knowledge</a>
       </nav>
     </header>
-    <section class="hero" aria-labelledby="knowledge-title">
+    <section class="hero knowledge-page" aria-labelledby="knowledge-title">
+      <p class="eyebrow">YOUR KNOWLEDGE</p>
       <h1 id="knowledge-title">Add to Knowledge</h1>
-      <p class="subtitle">Select a folder.</p>
-      <button class="filter active" id="select-folder" type="button">Select folder</button>
-      <p class="result-summary" id="selected-folder" role="status">No folder selected.</p>
+      <p class="subtitle">Choose a folder to review its files.</p>
+      <section class="knowledge-card" aria-labelledby="folder-heading">
+        <div class="knowledge-card-header">
+          <h2 id="folder-heading">Selected folder</h2>
+          <button class="folder-button" id="select-folder" type="button">Select folder</button>
+        </div>
+        <p class="folder-path" id="selected-folder">No folder selected.</p>
+      </section>
+      <p id="selection-status" class="selection-status" role="status"></p>
+      <section class="knowledge-card" id="selected-files" aria-labelledby="files-heading" hidden>
+        <div class="knowledge-card-header">
+          <h2 id="files-heading">Selected files</h2>
+          <span class="file-count" id="file-count">0 files</span>
+        </div>
+        <p class="file-preview-summary" id="file-preview-summary"></p>
+        <ul class="knowledge-file-list" id="file-list" aria-label="Selected file preview"></ul>
+      </section>
     </section>
     <footer>OmniSearch</footer>
   </main>
