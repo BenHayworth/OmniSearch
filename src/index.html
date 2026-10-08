@@ -13,7 +13,28 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body class="home-page">
+  <div class="neural-background" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <defs>
+        <radialGradient id="neural-glow">
+          <stop stop-color="#c9c7ff" stop-opacity=".55" />
+          <stop offset="1" stop-color="#c9c7ff" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+      <ellipse cx="600" cy="370" rx="540" ry="370" fill="url(#neural-glow)" />
+      <g class="neural-links">
+        <path d="M580 170 510 120 420 145 345 210 300 300 315 405 365 490 450 540 525 510 580 570 580 170ZM620 170 690 120 780 145 855 210 900 300 885 405 835 490 750 540 675 510 620 570 620 170Z" />
+        <path d="M510 120 490 245 420 145 405 325 345 210 490 245 580 170M300 300 405 325 315 405 430 425 365 490 450 540 430 425 525 510 510 345 580 400M490 245 510 345 405 325 430 425 510 345 580 270 490 245M580 400 525 510 580 570M690 120 710 245 780 145 795 325 855 210 710 245 620 170M900 300 795 325 885 405 770 425 835 490 750 540 770 425 675 510 690 345 620 400M710 245 690 345 795 325 770 425 690 345 620 270 710 245M620 400 675 510 620 570" />
+        <path d="M300 300 185 255 100 335M315 405 175 455 95 580M365 490 285 610 195 670M420 145 310 85 185 115M900 300 1015 255 1100 335M885 405 1025 455 1105 580M835 490 915 610 1005 670M780 145 890 85 1015 115M450 540 410 690M750 540 790 690" />
+      </g>
+      <g class="neural-nodes">
+        <circle cx="580" cy="170" r="6" /><circle cx="510" cy="120" r="7" /><circle cx="420" cy="145" r="5" /><circle cx="345" cy="210" r="6" /><circle cx="300" cy="300" r="8" /><circle cx="315" cy="405" r="6" /><circle cx="365" cy="490" r="7" /><circle cx="450" cy="540" r="5" /><circle cx="525" cy="510" r="6" /><circle cx="580" cy="570" r="5" /><circle cx="490" cy="245" r="8" /><circle cx="405" cy="325" r="6" /><circle cx="510" cy="345" r="7" /><circle cx="430" cy="425" r="8" /><circle cx="580" cy="270" r="5" /><circle cx="580" cy="400" r="5" />
+        <circle cx="620" cy="170" r="6" /><circle cx="690" cy="120" r="7" /><circle cx="780" cy="145" r="5" /><circle cx="855" cy="210" r="6" /><circle cx="900" cy="300" r="8" /><circle cx="885" cy="405" r="6" /><circle cx="835" cy="490" r="7" /><circle cx="750" cy="540" r="5" /><circle cx="675" cy="510" r="6" /><circle cx="620" cy="570" r="5" /><circle cx="710" cy="245" r="8" /><circle cx="795" cy="325" r="6" /><circle cx="690" cy="345" r="7" /><circle cx="770" cy="425" r="8" /><circle cx="620" cy="270" r="5" /><circle cx="620" cy="400" r="5" />
+        <circle cx="185" cy="255" r="5" /><circle cx="100" cy="335" r="4" /><circle cx="175" cy="455" r="6" /><circle cx="95" cy="580" r="4" /><circle cx="285" cy="610" r="5" /><circle cx="195" cy="670" r="4" /><circle cx="310" cy="85" r="5" /><circle cx="185" cy="115" r="4" /><circle cx="1015" cy="255" r="5" /><circle cx="1100" cy="335" r="4" /><circle cx="1025" cy="455" r="6" /><circle cx="1105" cy="580" r="4" /><circle cx="915" cy="610" r="5" /><circle cx="1005" cy="670" r="4" /><circle cx="890" cy="85" r="5" /><circle cx="1015" cy="115" r="4" /><circle cx="410" cy="690" r="4" /><circle cx="790" cy="690" r="4" />
+      </g>
+    </svg>
+  </div>
   <main class="app-shell">
     <header class="topbar">
       <a class="brand" href="#" aria-label="OmniSearch home">

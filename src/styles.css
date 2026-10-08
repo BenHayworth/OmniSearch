@@ -8,6 +8,13 @@
 * { box-sizing: border-box; }
 
 body { margin: 0; min-width: 320px; min-height: 100vh; }
+.home-page { isolation: isolate; }
+.home-page .app-shell { position: relative; z-index: 1; }
+.neural-background { position: fixed; inset: 72px 0 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.neural-background svg { position: absolute; width: max(100%, 1000px); height: 100%; left: 50%; transform: translateX(-50%); opacity: .55; }
+.neural-links { stroke: #9b97dc; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: .38; }
+.neural-nodes { fill: #8b85d8; opacity: .55; }
+.home-page .results { background: rgba(244, 245, 247, .82); }
 button, input { font: inherit; }
 button { color: inherit; }
 
