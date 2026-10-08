@@ -1,5 +1,7 @@
 # Dependencies
 node_modules/
+knowledge.db
+knowledge.db-*
 
 # Python virtual environments
 .OmniSearch[Vv]env/

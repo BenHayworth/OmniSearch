@@ -9,7 +9,8 @@ async function handleSearch(event, folder) {
         })
     });
 
-    jsonResponse = await response.json();
+    if (!response.ok) throw new Error('Could not read folder.');
+    const jsonResponse = await response.json();
 
     console.log(jsonResponse);
 

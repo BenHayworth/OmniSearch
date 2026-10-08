@@ -72,3 +72,17 @@ app.on('window-all-closed', () => {
 
 
 ipcMain.handle('search', handleSearch);
+ipcMain.handle('add-to-knowledge', async (event, files) => {
+  const response = await fetch('http://127.0.0.1:5000/knowledge', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ files }),
+  });
+  if (!response.ok) throw new Error('Could not save files.');
+  return response.json();
+});
+ipcMain.handle('get-knowledge', async () => {
+  const response = await fetch('http://127.0.0.1:5000/knowledge');
+  if (!response.ok) throw new Error('Could not load saved files.');
+  return response.json();
+});

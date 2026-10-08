@@ -6,13 +6,20 @@ const selectedFiles = document.querySelector('#selected-files');
 const fileCount = document.querySelector('#file-count');
 const previewSummary = document.querySelector('#file-preview-summary');
 const selectionStatus = document.querySelector('#selection-status');
+const addToKnowledge = document.querySelector('#add-to-knowledge');
+const saveStatus = document.querySelector('#save-status');
+let pendingFiles = [];
 
 selectFolder.addEventListener('click', async () => {
   selectFolder.disabled = true;
+  addToKnowledge.disabled = true;
   selectionStatus.textContent = '';
   try {
     const folder = await window.omniSearch.selectKnowledgeFolder();
     if (!folder) return;
+    pendingFiles = [];
+    selectedFiles.hidden = true;
+    saveStatus.textContent = '';
     selectionStatus.textContent = 'Reading folder files...';
     selectFolder.textContent = 'Reading...';
     const result = await window.omniSearch.search(folder);
@@ -20,6 +27,7 @@ selectFolder.addEventListener('click', async () => {
       throw new Error('Invalid file list returned.');
     }
     const files = result.files;
+    pendingFiles = files;
     const visibleFiles = files.slice(0, MAX_VISIBLE_FILES);
     const rows = visibleFiles.map((file) => {
       const row = document.createElement('li');
@@ -45,6 +53,23 @@ selectFolder.addEventListener('click', async () => {
     console.error('Folder selection failed:', error);
   } finally {
     selectFolder.disabled = false;
+    addToKnowledge.disabled = pendingFiles.length === 0;
     selectFolder.textContent = selectedFiles.hidden ? 'Select folder' : 'Change folder';
+  }
+});
+
+addToKnowledge.addEventListener('click', async () => {
+  addToKnowledge.disabled = true;
+  selectFolder.disabled = true;
+  saveStatus.textContent = 'Saving files...';
+  try {
+    const result = await window.omniSearch.addToKnowledge(pendingFiles);
+    saveStatus.textContent = `${result.added} new files saved. View your saved files on the Files page.`;
+  } catch (error) {
+    saveStatus.textContent = 'Could not save files. Please try again.';
+    addToKnowledge.disabled = false;
+    console.error('Saving files failed:', error);
+  } finally {
+    selectFolder.disabled = false;
   }
 });
