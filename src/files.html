@@ -31,6 +31,12 @@
           <button class="filter active" type="submit">Search</button>
         </form>
         <p id="result-summary" class="result-summary" role="status"></p>
+        <div class="file-actions">
+          <span id="selection-count">0 selected</span>
+          <button id="delete-selected" class="folder-button" type="button" disabled>Delete selected</button>
+        </div>
+        <p>Deleting removes saved entries from knowledge. Original files stay on your computer.</p>
+        <p id="delete-status" class="selection-status" role="status"></p>
         <ul id="file-list" class="file-list" aria-label="Matching saved entries"></ul>
         <section id="no-matches" class="results" aria-labelledby="empty-title" hidden>
           <div class="empty-icon" aria-hidden="true">

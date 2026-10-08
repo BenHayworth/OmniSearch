@@ -72,6 +72,15 @@ app.on('window-all-closed', () => {
 
 
 ipcMain.handle('search', handleSearch);
+ipcMain.handle('delete-knowledge', async (event, files) => {
+  const response = await fetch('http://127.0.0.1:5000/knowledge', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ files }),
+  });
+  if (!response.ok) throw new Error('Could not delete saved files.');
+  return response.json();
+});
 ipcMain.handle('add-to-knowledge', async (event, files) => {
   const response = await fetch('http://127.0.0.1:5000/knowledge', {
     method: 'POST',

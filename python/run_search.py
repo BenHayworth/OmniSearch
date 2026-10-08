@@ -15,24 +15,28 @@ def open_database():
     return db
 
 
-@app.route("/knowledge", methods=["GET", "POST"])
+@app.route("/knowledge", methods=["GET", "POST", "DELETE"])
 def knowledge():
     files = []
-    if request.method == "POST":
+    if request.method in ("POST", "DELETE"):
         body = request.get_json(silent=True)
         files = body.get("files") if isinstance(body, dict) else None
-        if (not isinstance(files, list) or len(files) > MAX_FILES
+        if (not isinstance(files, list) or (request.method == "POST" and len(files) > MAX_FILES)
                 or not all(isinstance(file, str) and file.strip() for file in files)):
             return jsonify({"error": "Invalid file list."}), 400
     with closing(open_database()) as db:
         with db:
             before = db.total_changes
-            db.executemany("INSERT OR IGNORE INTO files (path, name) VALUES (?, ?)",
-                           [(file, Path(file).name) for file in files])
+            if request.method == "DELETE":
+                db.executemany("DELETE FROM files WHERE path = ?", [(file,) for file in files])
+            else:
+                db.executemany("INSERT OR IGNORE INTO files (path, name) VALUES (?, ?)",
+                               [(file, Path(file).name) for file in files])
             added = db.total_changes - before
         saved = [dict(path=row[0], name=row[1]) for row in
                  db.execute("SELECT path, name FROM files ORDER BY name, path")]
-    return jsonify({"files": saved, "added": added})
+    return jsonify({"files": saved, "added": added if request.method != "DELETE" else 0,
+                    "deleted": added if request.method == "DELETE" else 0})
 
 
 @app.post("/search")
